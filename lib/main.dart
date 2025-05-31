@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_timer/components/cyclic_screen.dart';
+import 'package:smart_timer/components/home_screen.dart';
+import 'package:smart_timer/components/schedule_screen.dart';
+import 'package:smart_timer/components/timer_screen.dart';
+import 'package:smart_timer/navigation/btn_navigation_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,26 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      debugShowCheckedModeBanner: false,
+      home: BtnNavigationScreen(),
+      routes: {
+        // Add other routes here if needed
+        '/home': (context) => HomeScreen(),
+        '/schedule': (context) => ScheduleScreen(),
+        '/timer': (context) => TimerScreen(),
+        '/cycle':
+            (context) =>
+                CyclicScreen(), // Assuming cycle is also a timer screen
+      },
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar());
   }
 }
