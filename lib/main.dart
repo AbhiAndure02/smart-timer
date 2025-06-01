@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         '/timer': (context) => TimerScreen(),
         '/cycle':
             (context) =>
-                CyclicScreen(), // Assuming cycle is also a timer screen
+                CyclicScreen(), 
       },
     );
   }

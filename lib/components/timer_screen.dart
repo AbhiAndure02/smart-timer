@@ -28,16 +28,16 @@ class _TimerScreenState extends State<TimerScreen> {
       final response = await http
           .get(
             Uri.parse(
-              '$_baseUrl?delay=$_totalSeconds&state=${_isActive ? 'on' : 'off'}',
+              '$_baseUrl?delay=$_totalSeconds&state=${_isActive ? 'off' : 'on'}',
             ),
           )
           .timeout(const Duration(seconds: 10));
 
       setState(() {
         _apiResponse = response.body;
-        if (response.body.toLowerCase().contains('off')) {
+        if (response.body.toLowerCase().contains('on')) {
           _isActive = true;
-        } else if (response.body.toLowerCase().contains('on')) {
+        } else if (response.body.toLowerCase().contains('off')) {
           _isActive = false;
         }
       });
